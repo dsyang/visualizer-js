@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Barne-hut Visualizer</title>
+    <style>
+      body {
+      margin:0px;
+      padding:0px;
+      text-align:center;
+      }
+
+      canvas{
+      outline:0;
+      border:1px solid #000;
+      margin-left: auto;
+      margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Check for the various File API support.
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+      // Great success! All the File APIs are supported.
+      } else {
+        alert('The necessary APIs are not fully supported in this browser. The Barnes-Hut visualizer will not work :(');
+      }
+    </script>
+
+
+
+
+    <div>
+      <h1>Barnes-Hut Javascript visualizer</h1>
+      <input type="file" id="transcript" name="transcript" />
+      <output id="list"></output>
+    </div>
+    <style>
+      #holder { border: 10px dashed #ccc; width: 300px; height:
+        300px; margin: 20px auto;}
+      #holder.hover { border: 10px dashed #333; }
+    </style>
+
+    <div id="holder"></div>
+    <canvas id='simulation'></canvas>
+    <script src="setup.js"></script>
+    <script src="fileinput.js"></script>
+    <script src="dragdrop.js"></script>
+    <script src="visualizer.js"></script>
+  </body>
+</html>
