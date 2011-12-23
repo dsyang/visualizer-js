@@ -9,6 +9,7 @@ drop.ondrop=function(e) {
     var file = e.dataTransfer.files[0];
     var reader = new FileReader();
     reader.onload = function (evt) {
+        text = e.target.result;
         console.log(evt.target.result);
     }
     reader.readAsText(file);

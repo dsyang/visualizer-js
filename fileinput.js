@@ -11,6 +11,14 @@ function handleFileSelect(evt) {
         return function (e) {
             text = e.target.result;
             console.log(text.trim().split('\n').length);
+            var parse_res = document.getElementById('parseOut');
+            if(parse()) {
+                parse_res.innerHTML = 'Valid';
+                parse_res.className = 'success';
+            } else {
+                parse_res.innerHTML = 'Invalid';
+                parse_res.className = 'fail';
+            }
         };
     })(trans);
     reader.readAsText(trans);
