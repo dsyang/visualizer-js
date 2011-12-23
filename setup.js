@@ -1,9 +1,6 @@
-var text;
-var points_array = new Array();
-var timeslices;
-
-var width = 800; //width of the canvas
-var height = 600;    //height of the canvas
+/**** Setup for Visualizer Canvas ****/
+var width = 800;   /* width of the canvas */
+var height = 600;  /* height of the canvas */
 var sim;
 
 var canvas = document.getElementById('simulation');
@@ -12,10 +9,21 @@ canvas.width = width;
 canvas.height = height;
 
 
+/**** Functions for parsing text *****/
+
+var text;                 /* a buffer for the transcript file text */
+var points = new Array(); /* array where points will be stored */
+var timeslices;           /* how many elements in the points array */
+var num_planets;          /* how many elements in arrays inside points array */
+
+
 /* sets points_array to be a multi-dimensional array of objects like */
 /* {x:float y:float} returns true on success, false on failure*/
 var parse = function() {
-    var lines, t1, t2, t3, num_planets, i, j, x, y;
+    /* temp vars. Good practice is to define at the beginning of function*/
+    var lines, t1, t2, t3, i, j, x, y;
+
+    /* preprocess text if it's there */
     if(typeof text !== 'undefined') {
         text = text.replace(/~/g, "-");
         lines = text.trim().split('\n');
@@ -25,23 +33,20 @@ var parse = function() {
         console.log("text undefined!");
         return false;
     }
+
+
     for(j  = 0; j < timeslices; j++) {
         /* take the line and split it */
         t1 = new Array(num_planets);
         t2 = lines[j].split("),(");
         if(num_planets !== t2.length) {
             console.log("Parsing planets fail!");
-            console.log(num_planets);
-            console.log(t2.length);
-            console.log(t2);
-            console.log(lines);
             return false;
         }
         for(i = 0; i < num_planets; i++){
             t3 = t2[i].split(",");
             if(t3.length !== 2) {
                 console.log("Parsing positions fail!");
-                console.log(t3);
                 return false;
             }
             var x = t3[0].replace("(", "");
@@ -49,13 +54,12 @@ var parse = function() {
             if( isNaN(parseFloat(x)) ||
                 isNaN(parseFloat(y)))
             {
-                console.log("Parsing positions fail!");
-                console.log(t3);
+                console.log("Positions aren't numbers!");
                 return false;
             }
             t1[i] = {x:parseFloat(x), y:parseFloat(y)}
         }
-        points_array.push(t1);
+        points.push(t1);
     }
     return true;
 };
