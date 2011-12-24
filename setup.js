@@ -15,7 +15,10 @@ var text;                 /* a buffer for the transcript file text */
 var points = new Array(); /* array where points will be stored */
 var timeslices;           /* how many elements in the points array */
 var num_planets;          /* how many elements in arrays inside points array */
-
+var state = {
+    timestep: 0,
+    points: new Array()
+};
 
 /* sets points_array to be a multi-dimensional array of objects like */
 /* {x:float y:float} returns true on success, false on failure*/
