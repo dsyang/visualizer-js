@@ -1,7 +1,11 @@
 /**** Setup for Visualizer Canvas ****/
 var width = 800;   /* width of the canvas */
 var height = 600;  /* height of the canvas */
+var body_radius = 10; /* radius of each planet*/
+var view_margin = body_radius + 5; /* margins for the canvas */
+
 var sim;
+
 
 var canvas = document.getElementById('simulation');
 var ctx = canvas.getContext('2d');
@@ -17,7 +21,11 @@ var timeslices;           /* how many elements in the points array */
 var num_planets;          /* how many elements in arrays inside points array */
 var state = {
     timestep: 0,
-    points: new Array()
+    maxX: 0,
+    points: new Array(),
+    maxY: 0,
+    minX: 0,
+    minY: 0
 };
 
 /* sets points_array to be a multi-dimensional array of objects like */
@@ -52,15 +60,19 @@ var parse = function() {
                 console.log("Parsing positions fail!");
                 return false;
             }
-            var x = t3[0].replace("(", "");
-            var y = t3[1].replace(")", "");
-            if( isNaN(parseFloat(x)) ||
-                isNaN(parseFloat(y)))
+            var x = parseFloat(t3[0].replace("(", ""));
+            var y = parseFloat(t3[1].replace(")", ""));
+            if( isNaN(x) || isNaN(y) )
             {
                 console.log("Positions aren't numbers!");
                 return false;
             }
-            t1[i] = {x:parseFloat(x), y:parseFloat(y)}
+            /* check for new max/min */
+            state.maxX = Math.max(x, state.maxX);
+            state.maxY = Math.max(y, state.maxY);
+            state.minX = Math.min(x, state.minX);
+            state.minY = Math.min(y, state.minY);
+            t1[i] = {x: x, y: y}
         }
         points.push(t1);
     }
