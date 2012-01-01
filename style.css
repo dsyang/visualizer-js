@@ -1,0 +1,84 @@
+
+body {
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
+
+#container {
+    margin: auto;
+    width: 800px;
+}
+
+canvas{
+    outline:0;
+    border:1px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    clear: all;
+}
+
+#holder {
+    border: 10px dashed #ccc;
+    width: 300px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+#parseOut {
+    width: 300px;
+    height: 50px;
+    margin: 20px auto;
+    text-align: middle;
+    font-weight: bold;
+}
+
+.success {
+    padding-top: 20px;
+    background-color: #BFE7BF;
+}
+
+.end {
+    padding-top: 20px;
+    background-color: #FDF5D9;
+}
+
+.fail {
+    padding-top: 20px;
+    background-color: #FDDFDE;
+}
+
+#inputs {
+    margin: auto;
+    float: left;
+}
+
+fieldset {
+    width: 350px;
+    height: 230px;
+    float: left;
+    margin: 10px;
+}
+
+#transcript {
+    margin-top: 10px;
+}
+
+#go {
+/*visibility: hidden;*/
+}
+
+
+.lastmod{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    color: #747474;
+    font-size: 80%;
+}
+
+.badges img {
+    border: 0;
+    width: 88px;
+    height: 31px;
+}
