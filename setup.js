@@ -31,6 +31,10 @@ var state = {
 /* sets points_array to be a multi-dimensional array of objects like */
 /* {x:float y:float} returns true on success, false on failure*/
 var parse = function() {
+    /* reset state  to null. */
+    points = new Array();
+    state.maxX = state.maxY = state.minX = state.minY = 0;
+
     /* temp vars. Good practice is to define at the beginning of function*/
     var lines, t1, t2, t3, i, j, x, y;
 

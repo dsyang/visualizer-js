@@ -84,4 +84,5 @@ var startSim = function() {
 }
 
 clear();
+$("#go").hide();
 $("#go").click(startSim);

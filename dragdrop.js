@@ -16,6 +16,7 @@ drop.ondrop=function(e) {
             if(parse()) {
                 parse_res.innerHTML = file.name + ': Valid transcript';
                 parse_res.className = 'success';
+                $("#go").show();
             } else {
                 parse_res.innerHTML = file.name + ': Parse error!';
                 parse_res.className = 'fail';
