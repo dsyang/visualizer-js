@@ -73,6 +73,8 @@ var simLoop = function(){
 
     if (state.timestep < timeslices-1) {
         sim = setTimeout(simLoop, 1000 / 50);
+    } else {
+        document.getElementById('parseOut').innerHTML = "End Simulation.";
     }
 }
 
