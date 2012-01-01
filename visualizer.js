@@ -41,11 +41,8 @@ var drawBody = function(color, pt) {
     // in addition, the coordinates are scaled fucking huge
     var scalePoints = state.scaleFn;
     var scale = Math.max(state.maxX, state.maxY);
-    var coordx = (pt.x/scale) * (width/2);
-    var coordy = (pt.y/scale) * (height/2);
-    var truex = coordx + (width/2);
-    var truey = coordy + (height/2);
     var pos = scalePoints(pt.x, pt.y);
+
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.arc(pos.x, pos.y, body_radius, 0, Math.PI*2, true);
@@ -53,7 +50,6 @@ var drawBody = function(color, pt) {
     ctx.lineWidth = 1;
     ctx.strokeStyle = 'white';
     ctx.stroke();
-    //ctx.fill();
     //console.log("Draw at x: " + pos.x + " y: " + pos.y);
 }
 
@@ -75,6 +71,7 @@ var simLoop = function(){
         sim = setTimeout(simLoop, 1000 / 50);
     } else {
         document.getElementById('parseOut').innerHTML = "End Simulation.";
+        document.getElementById('parseOut').className = 'end';
     }
 }
 
