@@ -82,3 +82,15 @@ var parse = function() {
     }
     return true;
 };
+
+
+var parseSuccess = function(file, parseid) {
+    parseid.innerHTML = file.name + ': Valid transcript';
+    parseid.className = 'success';
+    $("#go").show();
+};
+
+var parseFail = function(file, parseid) {
+    parseid.innerHTML = file.name + ': Parse error!';
+    parseid.className = 'fail';
+}
