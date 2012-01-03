@@ -1,3 +1,8 @@
+/* setup.js
+ * file that holds much of the config information
+ * also defines functionality for parsing
+ */
+
 /**** Setup for Visualizer Canvas ****/
 var width = 800;   /* width of the canvas */
 var height = 600;  /* height of the canvas */
@@ -31,11 +36,11 @@ var state = {
 /* sets points_array to be a multi-dimensional array of objects like */
 /* {x:float y:float} returns true on success, false on failure*/
 var parse = function() {
-    /* reset state  to null. */
+    /* reset state to null. */
     points = new Array();
     state.maxX = state.maxY = state.minX = state.minY = 0;
 
-    /* temp vars. Good practice is to define at the beginning of function*/
+    /* temp vars */
     var lines, t1, t2, t3, i, j, x, y;
 
     /* preprocess text if it's there */

@@ -1,3 +1,7 @@
+/* dragdrop.js
+ * functionality to parse file dragged into box
+ */
+
 var drop = document.getElementById("holder");
 
 drop.ondragover = function () {this.className = 'focus'; return false;};

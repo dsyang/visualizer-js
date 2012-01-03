@@ -1,3 +1,7 @@
+/* visualizer.js
+ * functionality for the visualizer simulation
+ */
+
 var clear = function(){
     ctx.fillStyle = '#000000';
     //set active color to #d0e... (nice blue)

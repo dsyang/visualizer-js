@@ -1,3 +1,8 @@
+/* fileinput.js
+ * functionality to parse file
+ * chosen by the file select box
+ */
+
 var fileInput = document.getElementById("transcript");
 
 fileInput.onchange = function(evt) {
