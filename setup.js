@@ -69,8 +69,26 @@ var parse = function() {
                 console.log("Parsing positions fail!");
                 return false;
             }
-            var x = parseFloat(t3[0].replace("(", ""));
-            var y = parseFloat(t3[1].replace(")", ""));
+            var x_toParse = t3[0].replace("(", "");
+            var y_toParse = t3[1].replace(")", "");
+            var x, y;
+
+            if (/\d+\/\d+/.test(x_toParse)) {
+                var x_frac = x_toParse.split("/");
+                var y_frac = y_toParse.split("/");
+                if (x_frac.length !== 2 || y_frac.length !== 2) {
+                    console.log("Parsing rational coordinates fail!");
+                    return false;
+                }
+                x = parseInt(x_frac[0]) / parseInt(x_frac[1]);
+                y = parseInt(y_frac[0]) / parseInt(y_frac[1]);
+                console.log("x: " + x + "\n");
+                console.log("y: " + y + "\n");
+            } else {
+                x = parseFloat(x_toParse);
+                y = parseFloat(y_toParse);
+            }
+
             if( isNaN(x) || isNaN(y) )
             {
                 console.log("Positions aren't numbers!");
